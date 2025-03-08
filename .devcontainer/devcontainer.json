@@ -1,5 +1,17 @@
 {
   "image": "ubuntu:latest",
   "features": {},
-  "postCreateCommand": "chmod +x startup.sh && ./setup.sh"
+  
+  "postCreateCommand": "./scripts/startup.sh",  // Caminho para o seu script setup.sh
+
+  "mounts": [
+    "source=${localWorkspaceFolder}/scripts,target=/workspace/scripts,type=bind"
+  ],
+  
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "hashicorp.terraform",
+    "pulumi.pulumi-vscode",
+    "ms-vscode.ansible"
+  ]
 }
