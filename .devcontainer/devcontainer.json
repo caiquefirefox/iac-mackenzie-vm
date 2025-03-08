@@ -2,7 +2,7 @@
   "image": "ubuntu:latest",
   "features": {},
   
-  "postCreateCommand": "chmod +x ./scripts/startup.sh && ./scripts/startup.sh",  // Caminho para o seu script startup.sh
+  "postCreateCommand": "chmod +x ./scripts/startup.sh",  // Caminho para o seu script startup.sh
 
   "mounts": [
     "source=${localWorkspaceFolder}/scripts,target=/workspace/scripts,type=bind"
