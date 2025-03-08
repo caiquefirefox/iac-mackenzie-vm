@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Atualiza o sistema
-sudo apt-get update -y
-sudo apt-get upgrade -y
+apt-get update -y
+apt-get upgrade -y
 
 # Instala dependências necessárias
-sudo apt-get install -y unzip curl gnupg lsb-release software-properties-common
+apt-get install -y unzip curl gnupg lsb-release software-properties-common
 
 # -------------------------------------------
 # INSTALANDO AWS CLI
@@ -16,7 +16,7 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 # Descompacta o arquivo
 unzip awscliv2.zip
 # Executa o instalador
-sudo ./aws/install
+./aws/install
 # Limpa os arquivos temporários
 rm -rf awscliv2.zip aws/
 
@@ -33,9 +33,13 @@ aws --version
 # -------------------------------------------
 echo "Instalando Terraform..."
 # Baixa a versão mais recente do Terraform
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-sudo apt update -y
-sudo apt install -y terraform
+apt update -y
+pt install gpg
+pt install wget
+wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update
+apt install -y terraform
 
 # Verifica a instalação
 terraform -v
@@ -45,9 +49,10 @@ terraform -v
 # -------------------------------------------
 echo "Instalando Ansible..."
 # Instala o Ansible via apt
-sudo apt-add-repository -y ppa:ansible/ansible
-sudo apt update -y
-sudo apt install -y ansible
+apt-add-repository -y ppa:ansible/ansible
+apt update -y
+apt install -y ansible
+export LC_ALL="C.UTF-8"
 
 # Verifica a instalação
 ansible --version
