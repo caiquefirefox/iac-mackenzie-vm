@@ -1,5 +1,5 @@
 {
-  "image": "ghcr.io/devcontainers/features/aws-cli:1",
+  "image": "ubuntu:latest",
   "features": {},
   "postCreateCommand": ""
 }
