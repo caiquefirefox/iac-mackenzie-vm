@@ -1,5 +1,5 @@
 {
   "image": "ubuntu:latest",
   "features": {},
-  "postCreateCommand": ""
+  "postCreateCommand": "chmod +x startup.sh && ./setup.sh"
 }
