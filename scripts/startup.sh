@@ -21,9 +21,10 @@ unzip awscliv2.zip
 rm -rf awscliv2.zip aws/
 
 # Configuração das credenciais AWS (substitua as variáveis abaixo pelos seus valores)
-#aws configure set aws_access_key_id "SEU_ACCESS_KEY"
-#aws configure set aws_secret_access_key "SEU_SECRET_KEY"
-#aws configure set region "us-east-1"  # Substitua pela sua região desejada
+export AWS_ACCESS_KEY_ID="SEU_ACCESS_KEY"
+export AWS_SECRET_ACCESS_KEY="SEU_SECRET_KEY"
+export AWS_DEFAULT_REGION="sa-east-1"  # Região São Paulo (substitua conforme necessário)
+export AWS_DEFAULT_OUTPUT="json" 
 
 # Verifica a instalação
 aws --version
