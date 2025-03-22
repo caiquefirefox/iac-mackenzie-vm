@@ -1,4 +1,4 @@
-# Aula 3 - Provisionando servidor NGINX com Ansible
+# Aula 3 - Provisionando servidor e instalando NGINX utilizando o Ansible
 
 1. Criar uma NOVA INSTÂNCIA EC2 na AWS
 2. Atribuir essa NOVA INSTÂNCIA ao grupo de segurança criado na aula anterior
