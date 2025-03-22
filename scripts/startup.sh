@@ -11,6 +11,25 @@ apt-get install -y unzip curl gnupg lsb-release software-properties-common
 # INSTALANDO AWS CLI
 # -------------------------------------------
 echo "Instalando AWS CLI..."
+
+mkdir -p ~/.aws
+
+# Criar o arquivo de credenciais
+echo "[default]" > ~/.aws/credentials
+echo "aws_access_key_id = SEU_ACCESS_KEY" >> ~/.aws/credentials
+echo "aws_secret_access_key = SEU_SECRET_KEY" >> ~/.aws/credentials
+
+# Criar o arquivo de configuração da região e formato de saída
+echo "[default]" > ~/.aws/config
+echo "region = sa-east-1" >> ~/.aws/config  # Região São Paulo (substitua conforme necessário)
+echo "output = json" >> ~/.aws/config       # Formato de saída JSON
+
+# Configuração das credenciais AWS (substitua as variáveis abaixo pelos seus valores)
+export AWS_ACCESS_KEY_ID="SEU_ACCESS_KEY"
+export AWS_SECRET_ACCESS_KEY="SEU_SECRET_KEY"
+export AWS_DEFAULT_REGION="sa-east-1"  # Região São Paulo (substitua conforme necessário)
+export AWS_DEFAULT_OUTPUT="json" 
+
 # Baixa o instalador do AWS CLI v2
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 # Descompacta o arquivo
@@ -19,12 +38,6 @@ unzip awscliv2.zip
 ./aws/install
 # Limpa os arquivos temporários
 rm -rf awscliv2.zip aws/
-
-# Configuração das credenciais AWS (substitua as variáveis abaixo pelos seus valores)
-export AWS_ACCESS_KEY_ID="SEU_ACCESS_KEY"
-export AWS_SECRET_ACCESS_KEY="SEU_SECRET_KEY"
-export AWS_DEFAULT_REGION="sa-east-1"  # Região São Paulo (substitua conforme necessário)
-export AWS_DEFAULT_OUTPUT="json" 
 
 # Verifica a instalação
 aws --version
