@@ -1,0 +1,14 @@
+- name: Update apt package cache
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600   # Tempo em segundos para considerar o cache válido
+
+- name: Upgrade all apt packages
+  ansible.builtin.apt:
+    upgrade: dist   # Pode ser 'yes' ou 'dist' (dist é mais seguro para upgrades maiores)
+    autoremove: yes  # Remove pacotes que não são mais necessários
+    
+- name: Install http Package
+  package:
+    name: nginx
+    state: present
