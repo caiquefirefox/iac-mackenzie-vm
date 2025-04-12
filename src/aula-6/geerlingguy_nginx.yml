@@ -1,0 +1,3 @@
+- hosts: webservers-geerlingguy
+  roles:
+    - { role: geerlingguy.nginx }
